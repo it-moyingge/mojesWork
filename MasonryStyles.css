@@ -1,0 +1,49 @@
+body::-webkit-scrollbar {
+	display: none;
+}
+
+.waterfall-container {
+	column-count: 5;
+	/* 设置列数 */
+	column-gap: 20px;
+	/* 列间距 */
+}
+
+.waterfall-container img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	/* 控制图片填充方式 */
+	margin: 10px 0;
+	/* 图片间距 */
+	transition: transform 0.3s ease;
+	/* 添加过渡效果 */
+	display: block;
+	/* 确保图片以块级元素显示，以便正确应用变换效果 */
+	filter: drop-shadow(3px 3px 3px #bcbcbc)
+	/* 图片阴影 */
+	
+}
+
+.waterfall-container img:hover {
+	transform: scale(1.03);
+	/* 鼠标悬停时放大图片到原始尺寸的1.1倍 */
+	z-index: 2;
+	/* 提高图片的层级，确保在放大时不被其他图片遮挡 */
+	position: relative;
+	/* 使z-index生效 */
+}
+
+@media screen and (max-width: 1199px) {
+	.waterfall-container {
+		column-count: 3;
+		/* 中等屏幕下显示3列 */
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.waterfall-container {
+		column-count: 2;
+		/* 小屏幕下显示2列 */
+	}
+}
